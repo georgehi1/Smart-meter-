@@ -1,0 +1,8 @@
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os main.c font.c lcd.c ili934x.c -o main.elf && avr-objcopy -O ihex main.elf main.hex && avrdude -c usbasp -p m644p -U flash:w:main.hex
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os main.c -o main.elf -L C:\WinAVR-20100110\lib -llcd
+avr-objcopy -O ihex main.elf main.hex
+avrdude -c usbasp -p m644p -U flash:w:main.hex
+C:\WinAVR-20100110\lib
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os main.c liblcd.a -o main.elf 
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os pwm.c font.c lcd.c ili934x.c -o pwm.elf
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os pwm.c font.c lcd.c ili934x.c -o pwm.elf && avr-objcopy -O ihex pwm.elf pwm.hex && avrdude -c usbasp -p m644p -U flash:w:pwm.hex
